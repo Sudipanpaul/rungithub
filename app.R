@@ -1,14 +1,17 @@
+
 library(shiny)
 
 
 ui = fluidPage(
   titlePanel("Test rungithub"),
   tabPanel(
-    textInput("wd","Set your working directory"),
+    
     verbatimTextOutput("wd"),
     fileInput("file","uploadkaro"),
     tableOutput("table"),
-    actionButton("dd","check workdir")
+    textInput("wd","hi"),
+    actionButton("dd","check workdir"),
+    
   )
 )
 
