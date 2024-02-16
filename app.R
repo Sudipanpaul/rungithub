@@ -1,3 +1,4 @@
+#setwd("D:/Shiny task and codes/Deployment/Testing runGithub for directory based app")
 
 library(shiny)
 
@@ -6,16 +7,18 @@ ui = fluidPage(
   titlePanel("Test rungithub"),
   tabPanel(
     
-    verbatimTextOutput("wd"),
+    
     fileInput("file","uploadkaro"),
     tableOutput("table"),
-    textInput("wd","hi"),
+    textInput("wd2","hi"),
     actionButton("dd","check workdir"),
+    verbatimTextOutput("wd"),
     
   )
 )
 
 server = function(input,output,session){
+  
   
   output$table = renderTable({
     df =  read.csv("local_file.csv")
@@ -24,6 +27,7 @@ server = function(input,output,session){
   
  observeEvent(input$dd,{
    output$wd = renderPrint({
+     setwd(input$wd2)
      getwd()
    })
  })
